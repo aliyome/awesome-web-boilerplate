@@ -1,6 +1,6 @@
 # Awesome-web-boilerplate
 
-![Badge Status](#)
+[![CircleCI](https://circleci.com/gh/aliyome/awesome-web-boilerplate.svg?style=svg)](https://circleci.com/gh/aliyome/awesome-web-boilerplate)
 
 {{Awesome-web-boilerplate}} is a boilerplate for web service.
 

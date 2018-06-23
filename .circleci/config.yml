@@ -7,4 +7,5 @@ jobs:
       - checkout
       - run: find .
       - run: dotnet restore
+      - run: dotnet build
       - run: dotnet test --no-build AspWebapi.Test

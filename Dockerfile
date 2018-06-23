@@ -26,4 +26,5 @@ RUN dotnet publish -c Release -o dist
 FROM microsoft/dotnet:2.1-aspnetcore-runtime-alpine AS runtime
 WORKDIR /app
 COPY --from=build /app/AspWebapi/dist ./
+EXPOSE 80 443
 ENTRYPOINT ["dotnet", "asp_webapi.dll"]

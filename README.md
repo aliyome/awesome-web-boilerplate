@@ -23,24 +23,25 @@
 
 - https
 - REST api
-- auto api documentation
-- client code generation (using NSwag)
+- auto api documentation (swagger v2)
+- ~~client code generation~~
+  - I recommend you to use NSwagStudio
 - docker support
 
 ## Requirement
 
-- [NSwag Studio](https://github.com/RSuter/NSwag/wiki/NSwagStudio)
 - .NET Core 2.1 SDK
 - Windows?
   - My develop environment is Windows 10, so I don't know that this boilerplate is valid for other environment.
 - Docker(optional)
+- [NSwag Studio](https://github.com/RSuter/NSwag/wiki/NSwagStudio)(optional)
 
 ## Usage
 
 1.  clone this repo.
-2.  rename solution `asp_webapi.sln` to `{{your solution name}}`.
-3.  rename project `AspWebapi` to `{{your project name}}`.
-4.  rename test project `AspWebapi.Test` to `{{your test project name}}`.
+2.  rename solution `asp_webapi.sln` to `$solutionName`.
+3.  rename project `AspWebapi` to `$projectName`.
+4.  rename test project `AspWebapi.Test` to `$testProjectName`.
 
 command
 

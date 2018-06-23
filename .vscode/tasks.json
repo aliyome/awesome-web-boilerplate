@@ -1,15 +1,36 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/asp_webapi.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "AspWebapi"],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "publish",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["publish", "AspWebapi", "-c", "Release", "-o", "dist"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "test",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["test", "AspWebapi.Test"],
+      "problemMatcher": "$msCompile",
+      "group": "test"
+    },
+    {
+      "label": "watch",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["watch", "-p", "AspWebapi.Test", "test"],
+      "problemMatcher": "$msCompile",
+      "group": "test"
+    }
+  ]
 }

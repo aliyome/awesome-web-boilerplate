@@ -25,7 +25,15 @@
       "group": "test"
     },
     {
-      "label": "watch",
+      "label": "run:watch",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["watch", "-p", "AspWebapi", "run"],
+      "problemMatcher": "$msCompile",
+      "group": "test"
+    },
+    {
+      "label": "test:watch",
       "command": "dotnet",
       "type": "process",
       "args": ["watch", "-p", "AspWebapi.Test", "test"],

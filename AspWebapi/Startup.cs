@@ -28,6 +28,7 @@ namespace asp_webapi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -43,10 +44,15 @@ namespace asp_webapi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // FIXME: temporary comment out.
+            // app.UseHttpsRedirection();
             app.UseSwaggerUi(typeof(Startup).GetTypeInfo().Assembly, settings =>
             {
                 settings.GeneratorSettings.DefaultPropertyNameHandling = PropertyNameHandling.CamelCase;
+            });
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin();
             });
             app.UseMvc();
         }

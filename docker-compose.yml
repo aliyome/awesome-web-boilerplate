@@ -1,8 +1,92 @@
 version: "3"
 services: 
-  app:
-    build: .
-    ports: 
-      - "80:80"
-      - "443:443"
 
+  # webapi:
+  #   container_name: webapi
+  #   build: .
+  #   ports: 
+  #     - "30080:80"
+  #   networks:
+  #     - front
+  #     - back
+  #   restart: always
+  #   depends_on: 
+  #     - db
+  #     - redis
+
+  # angular:
+  #   container_name: angular
+  #   build: ./client/.
+  #   ports: 
+  #     - "80:4200"
+  #   volumes:
+  #     - ./client/:/app
+  #   restart: always
+  #   networks:
+  #     - front
+  #     - back
+  #   command: ng serve
+  #   depends_on: 
+  #     - webapi
+
+  
+  db:
+    container_name: db
+    image: postgres:10.4-alpine
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data
+    ports:
+      - "5432:5432"
+    volumes:
+      - "db-data:/data"
+    networks: 
+      - back
+  
+  db-admin:
+    container_name: db-admin
+    image: dpage/pgadmin4:latest
+    ports:
+      - "30081:80"
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    networks:
+      - back
+    depends_on: 
+      - db
+    volumes:
+      - pgadmin4-data:/var/lib/pgadmin
+    
+  redis:
+    container_name: redis
+    image: redis:4-alpine
+    volumes:
+      - "cache-data:/data"
+    ports:
+      - "6379:6379"
+    networks:
+      - back
+  
+  redis-gui:
+    container_name: redis-gui
+    image: rediscommander/redis-commander
+    ports:
+      - "30082:8081"
+    networks:
+      - back
+    depends_on: 
+      - redis
+    environment: 
+      REDIS_HOST: redis
+    restart: always
+
+volumes:
+  db-data:
+  cache-data:
+  pgadmin4-data:
+
+networks: 
+  front:
+  back:

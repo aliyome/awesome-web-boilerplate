@@ -1,5 +1,7 @@
 # Awesome-web-boilerplate
 
+**VisualStudio をインストールしないと開発体験が悪かったので中断**
+
 [![CircleCI](https://circleci.com/gh/aliyome/awesome-web-boilerplate.svg?style=svg)](https://circleci.com/gh/aliyome/awesome-web-boilerplate)
 
 {{Awesome-web-boilerplate}} is a boilerplate for web service.
